@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "180765054198",
+    "project_id": "add-members-cfd06",
+    "storage_bucket": "add-members-cfd06.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:180765054198:android:3ec20e82a49f243ec348d7",
+        "android_client_info": {
+          "package_name": "com.example.add_members_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA04B7vMBQ0FegUpyIo_XvNpgKiKakyzXs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
