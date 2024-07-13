@@ -1,4 +1,5 @@
-import 'package:add_members_app/view/home_page.dart';
+import 'package:add_members_app/core/theme/theme.dart';
+import 'package:add_members_app/view/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -15,11 +16,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const HomePage(),
+      theme: AppTheme.darkThemeMode,
+      home: const LoginPage(),
     );
   }
 }
