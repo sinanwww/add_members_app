@@ -1,29 +1,53 @@
+import 'package:add_members_app/view%20model/add_member_vm.dart';
 import 'package:add_members_app/view/adding_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class HomePage extends StatefulWidget {
+  HomePage({super.key});
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+final MemberViewModel memberViewModel = MemberViewModel();
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("Add members App"),
       ),
-      body: ListView.builder(
+      body:
+          //  memberViewModel.memberList.length < 1
+          //     ? Center(
+          //         child: Text(
+          //           "No Members",
+          //           style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+          //         ),
+          //       )
+          //     :
+
+          ListView.builder(
         padding: EdgeInsets.all(15),
-        itemCount: 20,
+        itemCount: memberViewModel.memberList.length,
         itemBuilder: (context, index) {
+          final member = memberViewModel.memberList[index];
           return Container(
             padding: EdgeInsets.all(10),
             margin: EdgeInsets.all(10),
             decoration: BoxDecoration(
-                border: Border.all(), borderRadius: BorderRadius.circular(10)),
+                border: Border.all(color: Colors.grey),
+                borderRadius: BorderRadius.circular(10)),
             child: Row(
               children: [
                 CircleAvatar(
-                  child: Icon(Icons.person),
+                  backgroundColor: Colors.grey,
+                  child: Icon(
+                    Icons.person,
+                    color: Colors.white,
+                  ),
                 ),
                 SizedBox(
                   width: 15,
@@ -32,7 +56,7 @@ class HomePage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "titele",
+                      member.name!,
                       style:
                           TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
                     ),
@@ -55,7 +79,9 @@ class HomePage extends StatelessWidget {
           color: Colors.white,
         ),
         onPressed: () {
-          Get.to(() => AddingPage());
+          Get.to(() => AddingPage(
+                memberModel: memberViewModel,
+              ));
         },
       ),
     );

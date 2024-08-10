@@ -1,4 +1,8 @@
+import 'package:add_members_app/view/home_page.dart';
+import 'package:add_members_app/widgets/auth_button.dart';
+import 'package:add_members_app/widgets/text_box.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -6,7 +10,8 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      body: Padding(
+        padding: const EdgeInsets.all(25),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -14,7 +19,34 @@ class LoginPage extends StatelessWidget {
             Text(
               "Sign In",
               style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
-            )
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            custumFormField(
+              hintText: "example.gmail.com",
+              labelText: "email",
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            custumFormField(
+              isobscureText: true,
+              hintText: "Passward",
+              labelText: "Passward",
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            AuthButton(
+              onPressed: () {
+                Get.to(() => HomePage());
+              },
+              label: "Sign In",
+            ),
+            const SizedBox(
+              height: 30,
+            ),
           ],
         ),
       ),
